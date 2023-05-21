@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 Jekyll is a static site generator for making websites. Here are the steps I took to create a website with Jekyll on github pages on Mac Mojave 10.14.6. Thanks to Amanda Visconti's lesson [Building a static stie with Jekyll and Github Pages](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages) and the documentation at [Jekyll](https://jekyllrb.com/docs/installation/macos/)
 
-Dynamic websites pull information from a database to populate each webpage, using content management systems like Drupal or Wordpress. Static websites do not use a CMS, instead each webpage is created statically using page templates that can be shared across all webpages in your site. Jekyll sites are typically quicker as there is no querying of a database to source information for the webpage. Jekyll creates static webpages which are hosted like any other website. Static pages also allow for easier version control as versions are simply text changes rather than databases changes.
+Whilst dynamic websites are great for complex web sites where a database is needed for content management system (eg Drupal or Wordpress), in many cases a static website is sufficient and are less complex to manage. The Jekyll static site generator provides a simple solution.
 
 ## Installation
 
@@ -17,18 +17,10 @@ Jekyll dependencies:
 
 We also install the rbenv ruby environment manager
 
-For website hosting, we use 
-
-- Github Pages
-
-To simplify version control management, instead of using command line, we use:
-
-- Github Desktop
-
-which provides a gui interface to commit, push, pull, merge changes to the main branch.
+For website hosting we use Github Pages, however this could also be our own domain.
 
 
-# Ruby and Ruby Gems
+### Ruby and Ruby Gems
 
 We install both Ruby and Ruby Gems. Gems is the package manager for Ruby.
 
@@ -67,7 +59,7 @@ Check that jekyll points to our home directory with
 
 
 
-# rbenv 
+### rbenv 
 
 We also install `rbenv` to manage environments with different ruby versions.
 
@@ -86,12 +78,12 @@ Setup rbenv to load rbenv automatically
 `echo 'eval "$(rbenv init -)"' >> ~/.bash_profile`
 
 
-# NodeJS
+### NodeJS
 
 `brew install node`
 
 
-# Jekyll
+### Jekyll
 
 Install the bundler and jekyll gems
 
@@ -100,30 +92,13 @@ Install the bundler and jekyll gems
 If this doesn't work, do `gem install --user-install bundler jekyll`
 
 
-# Github Desktop
+On github, create a repo with name [github_name].github.io.  cd into the repo.
 
-We install the Github Desktop app for easy version control
+```
+jekyll new . --force.
+```
 
-
-Visit the [GitHub Desktop site](https://desktop.github.com/) and click on the “Download GitHub Desktop” button to download the GitHub Desktop 
- 
-Configure by entering your github.com account credentials.
-
-
-
-
-
-## My first jekyll website
-
-Create your first jekyll website using the jekyll command to install a boilerplate site in your working directory
-
-`cd ~/Documents/GitHub`
-
-`jekyll new jekylldemo`
-
-In `jekylldemo` folder, we find all the initial files needed to run the website..
-
-`cd jekylldemo`
+## Configuration
 
 Next, we must set the baseurl, by
 
