@@ -104,63 +104,34 @@ Next, we must set the baseurl, by
 
 Open `_config.yml` file in a text editor. I use BBEdit. Change the baseurl line to be
 
-`baseurl: "/jekylldemo"`
+```
+baseurl: ""
+```
 
 It is good practice, we need to also set the url. Change the url line to
 
-`url: "localhost:4000"`
+```
+url: "[github_name].github.io"
+```
+
+Perform an initial site build with:
+
+```
+bundle exec jekyll build
+```
+
+
+## Publish to [github_name].github.io
+
+In your repo settings, set to public. Then in the Pages settings, set the publication branch to `main`
+
+On push to that branch it will publish your site.
+
+[https://jesscmoore.github.io/](https://jesscmoore.github.io/)
 
 
 
-# Create repo from project folder
-
-Open the GitHub desktop app. 
-
-Create a repo from jekylldemo project folder 
-
-Click `File` then `New Repository`
-
-The repo name must match the folder name of your jekyll site, and the baseurl set in the _config.yml file, i.e. enter `jekylldemo` as the repo name
-
-`Name`: `jekylldemo`
-
-The Local Path should be set as below
-
-`Local Path`: `~/Documents/GitHub`
-
-This will create the GitHub folder in your Documents directory. This folder is where your repos managed with the GitHub Desktop app are cloned to by default.
-
-For best practice, also tick the box to initialise with a README. Then click `Create Repository`
-
-Then click `Publish` to publish site to GitHub Pages
-
-Here you will also need to fix the yml file to point to the github.io webpage, by setting
-
-`url: "jesscmoore.github.io"`
-
-where the first part of the url is your github username.
-
-
-
-# Configure GitHub Page source
-
-Go to the online github repo
-
-Click `Settings` and scroll down to `GitHub Pages` section of the page. Ensure that the GitHub Pages source is set to the main branch. This way pull merges into the main branch will be published to GitHub Pages.
-
-You should see it show the url of your site as below where the first part of the url is your github username
-
-[https://jesscmoore.github.io/jekylldemo/](https://jesscmoore.github.io/jekylldemo/)
-
-
-
-# Personalise our site
-
-Before we make changes to the site, we must create a new git branch. In the Branch tab of GitHUb Desktop:
-
-Click the down arrow
-Then click `New Branch`
-Set the branch name to "personalise-repo"
+# Personalise your site
 
 In text editor, open `_config.yml` file_, and change the website title, description, and contact details
 
@@ -168,40 +139,20 @@ In text editor, open `_config.yml` file_, and change the website title, descript
 title: [YOUR PREFERRED WEBSITE TITLE]
 email: [EMAIL]
 description: >- # this means to ignore newlines until "baseurl:"
-  Data nerd, hiker, outdoor lover, and once an astronomer.
-baseurl: "/jekylldemo" # the subpath of your site, e.g. /blog
-url: "[GITHUB_USERNAME].github.io" # the base hostname & protocol for your site, e.g. http://example.com
+  Data analyst, hiker, lover of the outdoors, and once was an astronomer.
 twitter_username: [TWITTER_USERNAME]
 github_username:  [GITHUB_USERNAME]
 ```
 
-To commit these changes, go to `GitHub Desktop` app, then
-
-Enter a commit comment
-Click `Commit to personalise-repo` where that is the name of your current branch
-Click `Push Origin` to push local changes to origin
-Click `Create Pull Request` which opens a create pull request in your repo on github.com.
-
-Look for any conflicts, then 
-
-Click `Merge Pull Request`
-Click `Confirm Merge`
-
-
-
-# Deploy html to github-pages
-
-After merging a change to main branch, it should deploy automatically quite quickly to github pages. To check, go to your github repo on github.com i.e. [https://github.com/jesscmoore/jekylldemo](https://github.com/jesscmoore/jekylldemo). On right hand side of the page, scroll down to `Environments`, and click `github-pages` environment to show all code deployments to github.io. It should show that a change has just been deployed to the https://github.com/jesscmoore/jekylldemo.
-
-Note: It can take up to 20 minutes for changes to your site to publish after you push the changes to GitHub. If your don't see your changes reflected in your browser after an hour, see [About Jekyll build errors for GitHub Pages sites](https://docs.github.com/en/github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites).
 
 
 ## Local hosting
 
 Or if localhosting only, after updating page text, serve the webpage by typing
 
-`jekyll serve`
-
+```
+bundle exec jekyll serve --trace --livereload
+```
 
 # Useful references
 
