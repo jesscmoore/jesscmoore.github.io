@@ -15,9 +15,7 @@ In the School of Computing, she is the program convenor for ANU's applied data a
 
 SII collaborates with community, public and private sector organisations that require research and engineering with new computing technologies in data privacy, knowledge graphs and machine learning for public good applications.
 
-**Contact:** jessica.moore@anu.edu.au
-
-**More information:** [sii.anu.edu.au](sii.anu.edu.au)
+**More information:** [sii.anu.edu.au](https://sii.anu.edu.au)
 
 ### Activities & Awards
 
