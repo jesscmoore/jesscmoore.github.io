@@ -3,6 +3,7 @@ layout: post
 title:  "How to setup a static website on Github Pages with Jekyll"
 date:   2021-03-02 13:23:03 +1100
 categories: jekyll update
+published: false
 ---
 Jekyll is a static site generator for making websites. Here are the steps I took to create a website with Jekyll on github pages on Mac Mojave 10.14.6. Thanks to Amanda Visconti's lesson [Building a static stie with Jekyll and Github Pages](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages) and the documentation at [Jekyll](https://jekyllrb.com/docs/installation/macos/)
 
