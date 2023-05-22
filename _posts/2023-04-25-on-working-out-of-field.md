@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reflection on working outside"
+title:  "Reflection on working out of field"
 date:   2023-04-25 22:43:45 +1000
 categories: career
 published: false
