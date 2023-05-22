@@ -15,7 +15,7 @@ She supervises software and research engineering [projects](https://sii.anu.edu.
 
 Her research interests are in engineering software applications over [Social Linked Data](https://solidproject.org/) (SOLID) server technology and Personal Online Data Stores (PODs), consent management, analytics and data mining and data systems for complex governance collaborations. 
 
-In the School of Computing, she is the program convenor for ANU's applied data analytics and data engineering programs. She also has a PhD in Astronomy and Astrophysics (Galactic Dynamics) from the ANU and BSc Hons (Physics) from University of Melbourne, and has previously held two non-executive Board Director roles.
+In the School of Computing, she is the program convenor for ANU's applied data analytics and data engineering programs. She also has a PhD in Astronomy and Astrophysics from the ANU and BSc Hons (Physics) from University of Melbourne, and has previously held two non-executive Board Director roles.
 
 SII collaborates with community, public and private sector organisations that require research and engineering with new computing technologies in data privacy, knowledge graphs and machine learning for public good applications.
 
