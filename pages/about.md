@@ -5,7 +5,7 @@ permalink: "/about/"
 published: false
 ---
 
-Jess Moore is an applied data scientist in the ANU School of Computing with over 15 years post PhD experience as a practising data scientist leading data analytics, data strategy and data governance teams, and is the Chief Operating Officer and applied data scientist of the Software Innovation Institute (SII). 
+Jess Moore is an applied data scientist in the ANU School of Computing and Chief Operating Officer of the Software Innovation Institute (SII), with over 15 years post PhD experience as a practising data scientist leading data analytics, data strategy and data governance teams. 
 
 She supervises software and research engineering projects at SII, which is developing data science analytics and software engineering open source solutions for personal data access and control in the health and ed tech sectors, and is training ANU graduates in these new technologies. 
 
