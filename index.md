@@ -22,7 +22,7 @@ SII collaborates with community, public and private sector organisations that re
 **More information:** [sii.anu.edu.au](https://sii.anu.edu.au)
 
 ### Activities & Awards
-
+ 
 * Graduate, Founder's Institute Pre-seed Accelerator Program (2013)
 * Australian Government Medallion for Outstanding Achievement (2008)
 * Joan Duffield PhD Scholar, Research School of Astronomy & Astrophysics, Australian National University (1999) 
