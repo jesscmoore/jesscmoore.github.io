@@ -3,5 +3,4 @@ layout: home
 title: Blog
 ---
 
-Coming soon.
-
+<!-- Include intro blurb text here -->
