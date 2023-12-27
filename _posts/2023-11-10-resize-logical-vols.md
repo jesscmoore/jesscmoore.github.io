@@ -2,7 +2,6 @@
 layout: post
 title:  "How to allocate a logical volume on Ubuntu"
 date:   2023-11-10 13:23:03 +1100
-categories: ubuntu
 published: true
 toc: true
 ---
@@ -57,7 +56,6 @@ fdisk -l
 ```
 reboot
 ```
-
 Alternatively, if yo want to resize an existing logical volume, you will need to first identify and stop serviecs running on that volume
 ```
 lsof |grep [mount_point]
