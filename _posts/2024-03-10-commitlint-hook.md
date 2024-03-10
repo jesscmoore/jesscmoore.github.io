@@ -80,7 +80,14 @@ pre-commit autoupdate
 Now, committing some code will required commit messages in Angular style, e.g.
 
 ```
-git commit -m “feat: intial commit”
+git commit -m “feat: added button”
+```
+Longer commit messages comprise a title (limited to 72 characters) and a body separated by a blank line. These can be written using two `-m` where the first is for the message title and the second is for the message body. For example:
+```
+git commit -m "test: demonstrate multi-line commit message" -m "
+
+After a blank line enter the message body. Press ENTER before closing the quotes to add a line break. Then close the quotes and hit ENTER twice to apply the commit.
+"
 ```
 
 The type of the commit must be one of set of allowed types allowed in [Angular commit style](https://py-pkgs.org/07-releasing-versioning#automatic-version-bumping).
