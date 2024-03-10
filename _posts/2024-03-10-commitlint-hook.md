@@ -22,6 +22,7 @@ Using a [commitlint pre-commit hook](https://github.com/alessandrojcm/commitlint
 3. Add commitlint hook to `.pre-commit-config.yaml` - see procedure for details.
 4. `pre-commit install` - Install pre-commit hooks in .git folder.
 5. `pre-commit autoupdate` - Check for and install any updates to pre-commit hooks.
+6. Example commits using commitlint - see procedure for details.
 
 ## Procedure
 
@@ -35,7 +36,15 @@ poetry add commitlint --group dev
 
 ### Configure commitlint
 
-Set commitlint to use Angular style by creating a new file `commitlint.config.js` in your project root directory with the following contents:
+Set commitlint to use Angular style by creating a new file `.commitlintrc` in your project root directory with the following contents:
+```
+{
+    "extends": [
+        "@commitlint/config-angular"
+    ]
+}
+```
+Alternatively, use to configure commitlint with contents below to configure commitlint.
 ```
 //comitling.config.js at the root of your repo
 module.exports = {
@@ -43,6 +52,7 @@ module.exports = {
 };
 ```
 Note: it was not possible to configure commitlint with a `commitlintrc.yaml`.
+
 
 ### Add pre-commit hook
 
