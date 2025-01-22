@@ -169,10 +169,20 @@ Inspection of the `docker compose logs homebox` shows no errors.
 
 ### Configuration
 
-User registration can be turned off by adding below to docker-compose.yml:
+Turned off user registration by adding the setting below to the environment variables in docker-compose.yml:
 ```
 - HBOX_OPTIONS_ALLOW_REGISTRATION=false
 ```
+
+```
+$ docker compose logs homebox
+homebox  | 1:32PM INF ../go/src/app/app/api/handlers/v1/v1_ctrl_auth.go:98 > registering auth provider name=local
+homebox  | 1:32PM INF ../go/src/app/app/api/main.go:204 > Server is running on :7745
+```
+
+Other user registration is now disabled in the login screen.
+
+### Remote access
 
 Reverse proxy for host server can be setup also, see this script which also covers docker, portainer and nproxy-manager install - https://gitlab.com/bmcgonag/docker_installs/-/raw/main/install_docker_nproxyman.sh
 
