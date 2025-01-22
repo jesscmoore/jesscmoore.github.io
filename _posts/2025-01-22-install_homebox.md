@@ -167,6 +167,16 @@ Accessible to edit from Android OS and MacOS machines using chrome browser. Quic
 Inspection of the `docker compose logs homebox` shows no errors.
 
 
+### Configuration
+
+User registration can be turned off by adding below to docker-compose.yml:
+```
+- HBOX_OPTIONS_ALLOW_REGISTRATION=false
+```
+
+Reverse proxy for host server can be setup also, see this script which also covers docker, portainer and nproxy-manager install - https://gitlab.com/bmcgonag/docker_installs/-/raw/main/install_docker_nproxyman.sh
+
+
 ### Back up
 
 Regular backups should be setup. These can be done by exporting the db to csv.
@@ -177,3 +187,4 @@ Regular backups should be setup. These can be done by exporting the db to csv.
 - [https://homebox.software/en/]
 - [https://github.com/sysadminsmedia/homebox/releases] - binary and source code releases
 - https://medium.com/daniels-tech-world/getting-my-life-organised-with-homebox-open-source-inventory-management-d5583d4c4248
+- https://gitlab.com/bmcgonag/docker_installs/-/raw/main/install_docker_nproxyman.sh - script
