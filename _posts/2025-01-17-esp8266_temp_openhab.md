@@ -12,8 +12,12 @@ How to build a temperature and humidity sensor accessible from OpenHAB Home Assi
 
 This is adapted from the https://github.com/gonium/esp8266-dht22-sensor repo by Gonium, using only the DHT22 temperature and humidity sensor.
 
-1. [command] - 1 line explanation
-2. [command] - 1 line explanation
+1. [pip] - for installing platformio
+2. [pyenv] - for setting python environment
+3. [platformio] - compilation and installing firmware on the embedded board
+4. [curl] - querying the device webpage
+
+Optional: git for code versioning and VSCode editor with platformio IDE extension for editing, compiling and flashing the embedded board
 
 
 ## Requires
@@ -32,7 +36,6 @@ Software:
 - [python] - v3.11 used
 - [pyenv]
 - [platformio] - for code compilation and flashing the board
-- [git]
 - [curl]
 
 ## Procedure
@@ -51,6 +54,11 @@ If you forget to use [--recurse-submodules], run below to get the submodule
 
 ### Install platformio and setup IDE
 
+We start a virtual environment with `pyenv` to use python v3.11 for the project.
+
+    $ pyenv virtualenv 3.11.0 esp8266_dht22_sensor_dev
+    $ pyenv local esp8266_dht22_sensor_dev
+
 PlatformIO is a cross-platform, cross-architecture, multiple framework tool for developing applications for embedded products.
 
     $ pip install -U pip setuptools
@@ -63,11 +71,6 @@ From within VSCode, install the `platformio IDE extension`
 Open VSCode
 
     $ code .
-
-We start a virtual environment with `pyenv` to use python v3.11 for the project.
-
-    $ pyenv virtualenv 3.11.0 esp8266_dht22_sensor_dev
-    $ pyenv local esp8266_dht22_sensor_dev
 
 
 ### Configure host, wifi and sensor
@@ -309,18 +312,129 @@ Select `State Description` > `Add metadata` > `Pattern`: `%.1f %%`
 
 The humidity will now be displayed with 1 decimal place and % units.
 
+#### Add item for last update time
+
+By default things each have a `Last Success` and `Last Failure` date time channels. Adding a datetime item to `Last Success` channel will make last update time available for the UI.
+
+Open `Settings` > `Things` > click `RoomSensor HTTP Thing` > select `Channels` tab > click `Last Success` channel > click `Link Item to Channel` > and add these settings:
+
+```
+`Label`: `Last Update`
+`Type`: `Datetime`
+`Category`: `time`
+`Semantic class`: choose `point`
+`Semantic Property`: select `timestamp`
+```
+
+and click `Save`. The datetime will be displayed on the next data update.
+
+
 
 ### Add data to Openhab UI
 
 Openhab is a webapp with native apps for Android and other major platforms.
 
-It offers a variety of ways to design and edit the UI. Using `Sitemaps` may be the easiest way.
+It offers a variety of ways to design and edit the UI. The older method was using `Sitemaps` which are stored on raspberrypi in:
 
-Sitemaps seem to be not supported in OpenHab Main UI. However they would allow easy editing $OPENHAB_CONF/sitemaps on raspberrypi. Perhaps using vscode connected to raspberrypi.
+ `$OPENHAB_CONF/sitemaps`
 
-In `VSCode new window` > `<>` Connect to `jmoore@raspberrypi`
 
-VSCode will begin download and setup of the VSCode Server on the remote host.
+Openhab UI is accessible from web browser or native android apps for iOS and Android. The mobile apps read the sitemap by default, although the Android version switches to the MainUI Overview page when viewed in landscape mode. Note, without a sitemap, portrait view on Android displays the MainUI very poorly.
+
+For this reason, both MainUI Overview page and a sitemap are required. `Sitemaps`, `locations` and `pages` are all pages, which can be created and accessed from Pages section of the Settings submenu.
+
+#### Creating a sitemap (for mobile viewers)
+
+We will make a simple sitemap with two rows one for temperature and one for humidity under a heading with the location of the room sensor.
+
+Sitemaps can be created by adding a `*.sitemap` file to `$OPENHAB_CONF/sitemaps` or in the admin settings of Openhab web app. For reference see the [demo sitemap](https://www.openhab.org/docs/ui/sitemaps.html) in the Openhab docs.
+
+The `Create sitemap` shortcut is only visible from the `Developer Sidebar`, which we first must make visible.
+
+Click `Developer Tools` > under `Maitenance Tools` set ` Developer Sidebar`: on
+
+Next we will go to Pages, which is where we can access the sitemap and other pages from within Openhab.
+
+Click `Settings` > `Pages` > on sidebar click `Create sitemap` > enter `Label`: enter `My Home Automation` or your preferred page heading
+
+
+Then add a Frame to provide a heading with the location of our sensor.
+
+Click `My Home Automation` > `Insert widget inside Sitemap` > choose `Frame` > `Label`: `Office` > `Icon`: choose `bedroom` > `Save`
+
+Then we add a 1st text item widget for temperature.
+
+Click `Insert Widget Inside Frame` > select `Text` > enter `Label`: `Temperature [%.1f °C]` > click `Item`: select `Room_temperature` item > click `Icon`: choose `temperature` > `Save`.
+
+Next, add a 2nd text item widget for humidity.
+
+Click `Insert Widget Inside Frame` > select `Text` > enter `Label`: `Humidity [%.1f %%]` > click `Item`: select `Room_humidity` item > click `Icon`: choose `humidity` > `Save`.
+
+
+#### Edit MainUI Overview page (for web app users)
+
+Edit the Overview page to add a temperature and humidity card. We will use the combined [temperature and humidity cell widget](https://community.openhab.org/t/temperature-and-humidity-display-widget/143601) created by github user `the-ninth`
+
+Install this third party widget from the `Add-on Store`:
+
+Click `Add-on Store` > select `User Interfaces` to install widgets > enter "temperature" in Search bar > select `Temperature and Humidity Display Widget` > click `Install`.
+
+Now we can add this widget to the MainUI Overview page.
+
+Click `Settings` > click `Pages` > click `Overview` > select `Design` tab > click `Add Row` > click `Add Cells` > click `+` > select `TemperatureHumidity` cell widget > click top right icon > choose `Configure Cell` > and add these settings:
+
+```
+Title: Office Climate
+`Temperature item`: choose `Room_Temperature` item
+`Humidity item`: choose `Room_Humidity` item
+`Last update item`: choose `Last update` item
+`Temperature label`: `Temperature`
+`Temperature suffix`: `°C`
+`Humidity label`: `Humidity`
+`Humidity suffix`: `%`
+`Last Update label`: `Last Update`
+
+and click `Done` and click `Save`.
+
+If we had created a channel and item for the sensor data time, we could have then added an item for last update field too.
+
+Click `Save`.
+
+Alternatively the above widgets can be added to the `blocks:` section of the code by clicking `Code` tab.
+
+```
+  - component: oh-block
+    config: {}
+    slots:
+      default:
+        - component: oh-grid-cells
+          config: {}
+          slots:
+            default:
+              - component: widget:TemperatureHumidity
+                config:
+                  hum_item: RoomSensor_HTTP_Thing_Room_Humidity
+                  hum_label: Relative Humidity
+                  hum_suffix: "%"
+                  title: Main Bedroom Climate
+                  tmp_item: RoomSensor_HTTP_Thing_Room_Temperature
+                  tmp_label: Temperature
+                  tmp_suffix: °C
+                  update_item: RoomSensor_HTTP_Thing_Last_Success
+                  update_label: Last Update
+```
+
+Clicking `openHAB` icon to navigate to homepage shows our overview page with temperature and humidity.
+
+### Enable charts
+
+Clicking `Analyzer` on number widget should show a time series chart of the measurements.
+
+If no data points are displayed, check that `rrd4j` persistence is installed and set as the default persistence service.
+
+Open `Add-on Store` > `Persistence` > clcik `RD4j Persistence` and check showing installed.
+
+Under `Settings` > `Persistence` in Configuration menu > `Default Service`: check `RRD4J` selected.
 
 
 ### References
