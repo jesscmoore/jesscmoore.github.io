@@ -2,7 +2,7 @@
 layout: post
 title:  "How to backup raspberry pi"
 date:   2025-01-14 20:35:23 +1100
-published: no
+published: false
 toc: true
 ---
 

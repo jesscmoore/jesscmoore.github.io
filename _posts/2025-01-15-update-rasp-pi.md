@@ -2,7 +2,7 @@
 layout: post
 title:  "How to update Raspberry Pi OS"
 date:   2025-01-15 00:24:28 +1100
-published: no
+published: false
 toc: true
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "My first Openhab test"
 date:   2025-01-14 11:29:07 +1100
-published: no
+published: false
 toc: true
 ---
 
