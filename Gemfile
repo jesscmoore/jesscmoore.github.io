@@ -34,3 +34,15 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # Table of contents
 gem 'jekyll-toc'
+
+# Logger
+# Added to avoid "warning: logger was loaded from the standard library" in ruby
+gem 'logger'
+
+# csv
+# Added to avoid "warning: csv was loaded from the standard library"
+gem 'csv'
+
+# base64
+# Added to avoid "warning: base64 was loaded from the standard library"
+gem 'base64'
