@@ -184,12 +184,20 @@ Other user registration is now disabled in the login screen.
 
 ### Remote access
 
-Reverse proxy for host server can be setup also, see this script which also covers docker, portainer and nproxy-manager install - https://gitlab.com/bmcgonag/docker_installs/-/raw/main/install_docker_nproxyman.sh
+Reverse proxy for host server can be setup to access host remotely, use nginx or caddy.
+
+See also https://homebox.software/en/tips-tricks.html
+
+
+FYI, see this script which also covers docker, portainer and nproxy-manager install - https://gitlab.com/bmcgonag/docker_installs/-/raw/main/install_docker_nproxyman.sh
+
 
 
 ### Back up
 
 Regular backups should be setup. These can be done by exporting the db to csv.
+
+Daniel Rosehill medium article: "For backups, I’m using Snapshot Replication to take snapshots of the user data volume and Cloud Sync to push a couple of snapshots offsite to a cloud server at automatically recurring intervals."
 
 **References**
 
