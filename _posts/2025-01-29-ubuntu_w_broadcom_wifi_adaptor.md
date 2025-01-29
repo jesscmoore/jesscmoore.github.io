@@ -10,7 +10,7 @@ Some Broadcom Wireless Adaptors require drivers that are not supported out of th
 
 **Summary**
 
-1. [lspci --n |grep Network] - list
+1. [lspci --n |grep Network] - list wireless network adaptor name and version
 2. [uname -nrm] - list kernerl version
 3. [apt-cache search broadcom linux-headers] - search for broadcom and linux header packages
 4. [sudo apt-get install linux-headers-6.11.0-14-generic broadcom-sta-dkms && sudo apt autoremove] - install required package for this wifi adaptor
@@ -107,11 +107,14 @@ $ netplan status
 $ curl google.com
 ```
 
-The host is now remotely accessible on our LAN.
+The host is now remotely accessible on our LAN after ethernet cable disconnected.
 
 ```
 ssh jmoore@10.1.1.124
 ```
+
+Reconnecting ethernet cable does automatically restart ethernet interface (note: as we're using a Thunderbolt to ethernet adaptor, it does need to be fully pushed in.)
+
 
 ### Other useful commands
 
@@ -120,6 +123,4 @@ ssh jmoore@10.1.1.124
 
 **References**
 
-Refer to ...:
-
-[url]
+[https://ubuntu.com/server/docs/configuring-networks] - for more on networkd configuration with netplan, eg. static addresses, interface name and other settings, and taking interfaces up or down..
