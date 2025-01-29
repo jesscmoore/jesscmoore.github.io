@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Which tool for how-to notes"
+title:  "Which tool for how-to notes: comparing gists, git, jekyll, and keep"
 date:   2025-01-29 15:06:52 +1100
-published: false
+published: true
 toc: true
 ---
 
