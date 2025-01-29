@@ -17,7 +17,7 @@ All my gists can be listed with
 
 `gh gists list`
 
-however this displays the unreadable gist name and last comment, which are not sufficient for me to find where I documented X. There are ways to query one's gists, however this is not easy.
+however this displays the unreadable gist name and last comment, which are not sufficient for me to find where I documented X. There are [ways to search for gists](https://gist.github.com/santisbon/2e1e9c69b58bdf4c9624219a44d40d83), however this is not easy.
 
 ### Github repo
 
@@ -26,7 +26,18 @@ A full repo has the full suite of information management, search and code suppor
 
 ### Jekyll
 
-Jekyll is a static website generator enabling content to be easily written in markdown, edited in my favourite editro, and managed on command line.  A jekyll site managed in a github repo provides the right balance of information management and publication support. I can publish a article when it has been drafted and checked, by simply changing the `published: true` in the article yaml header and pushing changes. The repository is public, ie unpublished or work in progress articles can be shared with a url to the file in github, while published articles are online accessible with readable url and indexable.
+Jekyll is a static website generator enabling content to be easily written in markdown, edited in my favourite editro, and managed on command line.  A jekyll site managed in a github repo provides the right balance of information management and publication support. I can publish a article when it has been drafted and checked, by simply changing the `published` setting in the article yaml header and pushing changes.
+
+```
+---
+layout: post
+title:  "Which tool for how-to notes: comparing gists, git, jekyll, and keep"
+date:   2025-01-29 15:06:52 +1100
+published: true
+---
+```
+
+The repository is public, ie unpublished or work in progress articles can be shared with a url to the file in github, while published articles are online accessible with readable url and indexable.
 
 <!-- Can I render jekyll markdown to doc or pdf? -->
 
