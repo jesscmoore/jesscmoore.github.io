@@ -78,11 +78,12 @@ $ sudo nmcli d
 
 Edit your netplan yaml file to configure the wifi interface with our access point credentials and other settings. Additionally define network renderer as `networkd` for clarity.
 
-
-```
 Configure wireless interface with netplan:
+```
 sudo vim /etc/netplan/00-installer-config.yaml
-
+```
+and add renderer setting and wifis block:
+```
   renderer: networkd
   wifis:
     wlp3s0:
