@@ -10,22 +10,27 @@ Some Broadcom Wireless Adaptors require drivers that are not supported out of th
 
 **Summary**
 
-1. [lspci --n |grep Network] - list wireless network adaptor name and version
-2. [uname -nrm] - list kernerl version
-3. [apt-cache search broadcom linux-headers] - search for broadcom and linux header packages
-4. [sudo apt-get install linux-headers-6.11.0-14-generic broadcom-sta-dkms && sudo apt autoremove] - install required package for this wifi adaptor
-5. [sudo modprobe -v -r b44 b43 b43legacy brcmsmac] - remove conflicting already installed broadcom modules
-6. [sudo modprobe -v wl] - install required broadcom module
-7. [netplan status --all] - identify wireless interface name
-8. [sudo apt install nmcli wpa_supplicant] - install wpa_supplicant also required
-9. [sudo vim /etc/netplan/00-installer-config.yaml] - configure wifi interface with SSID and other settings
-10. [sudo netplan generate] - check and generate configuration in networkd
-11. [sudo netplan apply] - apply configuration
-12. [netplan status --all] - review
-13. [sudo reboot] - restart
+1. `lspci --n |grep Network` -List wireless network adaptor name and version
+2. `uname -nrm` - List kernerl version
+3. `apt-cache search broadcom linux-headers` - Search for broadcom and linux header packages
+4. `sudo apt-get install linux-headers-6.11.0-14-generic broadcom-sta-dkms && sudo apt autoremove` - install required package for this wifi adaptor
+5. `sudo modprobe -v -r b44 b43 b43legacy brcmsmac` - Remove conflicting already installed broadcom modules
+6. `sudo modprobe -v wl` - Install required broadcom module
+7. `netplan status --all` - Identify wireless interface name
+8. `sudo apt install nmcli wpa_supplicant` - Install wpa_supplicant also required
+9. `sudo vim /etc/netplan/00-installer-config.yaml` - Configure wifi interface with SSID and other settings
+10. `sudo netplan generate` - Use /etc/netplan to generate the required configuration for the renderers.
+11. `sudo netplan apply` - Apply all network interface configurations for the renderer, restarting them as necessary.
+12. `sudo systemctl restart systemd-networkd.service` - restart networkd service.
+13. `netplan status --all` - Review status of each network interface.
+
 
 
 ## Procedure
+
+### Network management tool
+
+The default network management tool in ubuntu >=24.04 is `networkd`.
 
 ### Install wireless network adaptor driver
 
@@ -62,7 +67,7 @@ netplan status --all
 
 The package `wpa_supplicant` appears to also be needed to connect to the wifi interface. It comes as a dependency of `nmcli` package, which is the Network Manage CLI. As we're using Networkd instead of Network Manager, we shouldn't need nmcli. Listing the devices afterwards, shows ethernet and wifi devices are not managed by Network Manager.
 
-<!-- TODO: repeat without `nmcli` -->
+<!-- TODO: repeat without `nmcli`. check wpa_supplicant and/or nmcli is required -->
 
 ```
 $ sudo apt install nmcli wpa_supplicant
@@ -71,18 +76,20 @@ $ sudo nmcli d
 
 ### Configure wifi network interface
 
-Edit your netplan yaml file to configure the wifi interface with our access point credentials and other settings.
+Edit your netplan yaml file to configure the wifi interface with our access point credentials and other settings. Additionally define network renderer as `networkd` for clarity.
+
 
 ```
 Configure wireless interface with netplan:
 sudo vim /etc/netplan/00-installer-config.yaml
 
+  renderer: networkd
   wifis:
     wlp3s0:
       dhcp4: yes
       dhcp6: yes
       access-points:
-        "your SSID":
+        "your SSID 2.4GHz":
           password: "your pw"
 ```
 
@@ -94,10 +101,10 @@ sudo netplan apply
 netplan status --all
 ```
 
-After restarting services with reboot:
+Restart networkd service
 
 ```
-sudo reboot
+sudo systemctl restart systemd-networkd.service
 ```
 
 SUCCESS!!! WOOHOO!! Both ethernet and wifi connections are now up.
@@ -115,11 +122,86 @@ ssh jmoore@10.1.1.124
 
 Reconnecting ethernet cable does automatically restart ethernet interface (note: as we're using a Thunderbolt to ethernet adaptor, it does need to be fully pushed in.)
 
+### Configure static IP address
+
+#### Add static lease
+
+In browser, login to modem wizard and adjusted Local Network settings to add new static lease.
+
+Click `Local Network` > `Add new static lease` and add:
+```
+`Hostname`: `[my_hostname]`
+`MAC address`: `[wifi interface MAC address]`
+`IP`: `[my_static_ip]`
+```
+
+where the static IP is within range `10.1.1.0/24`.
+
+Find out the DNS server by clicking 'Show advanced'.
+
+
+#### Configure network for static IP
+
+Update netplan configuration to use static lease
+
+```
+sudo vim /etc/netplan/50-cloud-init.yaml
+```
+and change wifis block to:
+```
+  wifis:
+    wlp3s0:
+      dhcp4: no
+      dhcp6: no
+      addresses:
+        - [my_static_ip]/24
+      routes:
+        - to: default
+          via: 10.1.1.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+      access-points:
+        "your SSID":
+          password: "your pw"
+        "your SSID 5GHz":
+          password: "your pw"
+```
+
+where `10.1.1.1` is modem gateway, and `8.8.8.8` and `8.8.4.4` are public nameservers provided by Google.
+
+
+#### Apply static IP
+
+Apply updated netplan configuration and restart networkd service.
+```
+netplan generate
+netplan apply
+systemctl restart systemd-networkd.service
+```
+
+Check wifi status
+```
+netplan status --all | grep wifi
+```
+
+Check IP address matches the static IP lease.
+
+```
+ip -br add show wlp3s0 | awk '{print $1, $2, $3}'
+ip route |grep wlp3s0 | head -n 1
+```
 
 ### Other useful commands
 
-[uname -mrs] - show kernel version
-[sudo lshw -C network] - show hardware information of network adaptors
+- `uname -mrs` - Shows kernel version.
+- `sudo lshw -C network` - Shows hardware information of network adaptors.
+- [lsusb] - Lists all USB devices connected to the system, including their PID and VID.
+- [lsmod] - Lists loaded driver modules.
+- `sudo systemctl status systemd-networkd.service` - Show status and recent log of networkd service.
+- `sudo systemctl restart systemd-networkd.service` - Restart networkd service.
+- `ip -br add show [interface] | awk '{print $1, $2, $3}'` - Show status and IP address of specific interface.
+- `ip route |grep wlp3s0 | head -n 1` - Show gateway route and lease type.
+
 
 **References**
 
