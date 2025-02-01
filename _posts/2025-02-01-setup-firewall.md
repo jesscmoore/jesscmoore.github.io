@@ -12,6 +12,11 @@ Basis firewall commands using `ufw`, Ubuntu's Uncomplicated FireWall.
 
 1. `sudo ufw logging on` - Setup logging
 2. `sudo ufw enable` - Start firewall
+1. `ufw allow ssh/tcp` - All ssh from all IPs.
+2. `ufw logging on` - Turn on logging.
+3. `ufw show added` - Show rules added by user.
+4. `ufw enable` - Start/restart ufw
+5. `ufw status verbose` - Show ufw status with rules (including defaults) and ufw logging status.
 
 
 ## Procedure
@@ -22,15 +27,14 @@ Basis firewall commands using `ufw`, Ubuntu's Uncomplicated FireWall.
 
 ### Enable logging
 
-If logging on, logs will be written to `/var/log/messages`, `/var/log/syslog`, and `/var/log/kern.log`.
+If logging on, logs will be written to `/var/log/syslog`, and `/var/log/kern.log`.
 
     $ sudo ufw logging on
 
-Logging behavior can be modified by editing /etc/syslog.conf.
 
 ### Enable firewall
 
-By default, ufw is disabled in ubuntu. If adding firewall remotely, make sure to allow ssh/tcp before enabling firewall
+By default, ufw is disabled in ubuntu. If adding firewall remotely, make sure to allow ssh/tcp before enabling firewall. Enabling the firewall, also enables firewall on boot.
 
     $ sudo ufw enable
 
@@ -43,9 +47,8 @@ There are various ways to view status
 - `sudo ufw status verbose` - verbose output shows status including logging and more detail
 - `sudo ufw status numbered` - show rules with number index to allow referencing rules with their number
 
-- `sudo systemctl status ufw.service` - how is this difference to ufw status
-- `sudo ufw reset` -
-- `sudo ufw reload` -
+- `sudo systemctl status ufw.service` - Viewing ufw status in system service format, including service file, PID, recent logs and more.
+
 
 
 ### Application rules
@@ -105,7 +108,7 @@ This allows traffic on all ports from ip addresses in range 10.1.1.0 to 10.1.1.2
 ### Other useful commands
 
 - `--dry-run` - Option to show the rules created by a command without applying them.
-- `sudo ufw disable && sudo ufw enable` - Restart firewall. Required to apply changes after rules have been changed.
+- `--force` - Used when running ufw commands in scripts, where it is a command that normally requires interactive confirmation, e.g. `ufw --force enable`.
 
 
 **References**
