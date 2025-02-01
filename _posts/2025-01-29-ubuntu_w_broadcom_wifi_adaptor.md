@@ -152,12 +152,12 @@ and change wifis block to:
 ```
   wifis:
     wlp3s0:
-      dhcp4: no
-      dhcp6: no
+      dhcp4: false
+      dhcp6: false
       addresses:
         - [my_static_ip]/24
       routes:
-        - to: default
+        - to: 10.1.0.0/16
           via: 10.1.1.1
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
@@ -168,7 +168,7 @@ and change wifis block to:
           password: "your pw"
 ```
 
-where `10.1.1.1` is modem gateway, and `8.8.8.8` and `8.8.4.4` are public nameservers provided by Google.
+where `10.1.1.1` is modem gateway, and `8.8.8.8` and `8.8.4.4` are public nameservers provided by Google. `routes.to` is set to `10.1.0.0/16` instead of `default`, as `default` is used for ethernet interface routing.
 
 
 #### Apply static IP
