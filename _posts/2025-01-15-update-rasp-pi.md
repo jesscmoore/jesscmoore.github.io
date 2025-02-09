@@ -61,7 +61,7 @@ Checking disk usage finds 4.7G used of 64GB new SD card.
 
 A low voltage warning in the status bar warns to check power supply. There is also a noticable lag.
 
-```
+```bash
 vcgencmd get_throttled
 throttled=0x50005
 ```
