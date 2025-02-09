@@ -169,6 +169,7 @@ The last step installs the user's `.bashrc`, other dot files and scripts folder 
 
 **References**
 
+- [https://medium.com/@t.deb41/how-to-turn-your-old-macbook-into-a-home-server-2bb04a5277f7] - on how to setup as server
 - [https://ubuntu.com/server/docs/openssh-server]
 - https://medium.com/wearetheledger/oh-my-zsh-made-for-cli-lovers-installation-guide-3131ca5491fb
 - https://ohmyz.sh/
