@@ -45,7 +45,7 @@ During install, select wifi network and add credentials.
 
 Install `OpenSSH Server` to allow remote login and management. Openssh server is inactive until started.
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install openssh-server
 sudo systemctl status ssh
@@ -53,7 +53,7 @@ sudo systemctl status ssh
 
 The system config options are specified in `/etc/ssh/sshd_config`, with commented options showing the default value. OpenSSH server reads this system config file and any additional configs in `/etc/ssh/sshd_config.d/*.conf`. `man sshd_config` for more info. Unless noted otherwise, for each keyword, the first obtained value is used. For this reason, we add our settings to a separate conf file.
 
-```
+```bash
 sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
 with contents:
@@ -64,14 +64,14 @@ PasswordAuthentication no
 
 First test sshd configuration before starting, which gave an error.
 
-```
+```bash
 sudo sshd -t -f /etc/ssh/sshd_config
 Missing privilege separation directory: /run/sshd
 ```
 
 Following https://askubuntu.com/questions/1110828/ssh-failed-to-start-missing-privilege-separation-directory-var-run-sshd created expected directory, after which the sshd check ran with no hiccups.
 
-```
+```bash
 sudo mkdir -p /var/run/sshd
 sudo chmod 0755 /var/run/sshd
 sudo sshd -t -f /etc/ssh/sshd_config
