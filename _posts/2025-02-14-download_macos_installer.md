@@ -56,7 +56,15 @@ Error Domain=PKDownloadError Code=8 "null" ... "A server with the specified host
 
 it is likely that internet connection cut out midway through the download. Switch to ethernet or mobile hotspot, which may have a more sustained connection than wifi.
 
+And added OpenDNS nameservers.
+
+`Settings` > `Network` > selected `Ethernet connection` > clicked `Details` > `DNS` > selected `+` > added `208.67.222.222` and `208.67.220.220`
+
+And restarted download.
+
 
 **References**
 
 - https://discussions.apple.com/thread/255182110?answerId=259942918022&sortBy=rank#259942918022
+- https://www.opendns.com/setupguide/
+- https://apple.stackexchange.com/questions/372785/pkdownloaderror-error-8-upon-catalina-update
