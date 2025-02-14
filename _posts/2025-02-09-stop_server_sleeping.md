@@ -74,6 +74,4 @@ Status of `sleep.target`, `suspend.target` and `hibernate.target` and `hybrid-sl
 
 **References**
 
-Refer to ...:
-
-[url]
+- https://medium.com/@t.deb41/how-to-turn-your-old-macbook-into-a-home-server-2bb04a5277f7
