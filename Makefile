@@ -30,6 +30,7 @@ $(APP) cli:
 
   build                            Build the $(APP) website
   serve                            Build and locally serve the $(APP) website
+  serve_unpub                      Build and locally serve (including unpublished pages)
 
   Note:
   commit and push to update remote and publish website $(SITE)
@@ -49,3 +50,6 @@ build:
 
 serve:
 	bundle exec jekyll serve
+
+serve_unpub:
+	bundle exec jekyll serve --unpublished
