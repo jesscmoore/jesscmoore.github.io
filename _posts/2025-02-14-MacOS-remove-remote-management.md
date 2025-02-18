@@ -8,31 +8,24 @@ toc: true
 
 Removing remote management requires erasing the MacOS installation and removing the external Mobile Device Management profile (MDM) during a fresh installation while the machine is disconnected from the internet to prevent reinstall of the MDM profile.
 
-**Summary**
-
-1. [command] - 1 line explanation
-2. [command] - 1 line explanation
 
 ## Procedure
-
-### Preparation steps
 
 [Download MacOS]({% post_url 2025-02-14-download_macos_installer %}).
 
 Burn MacOS onto a [bootable USB drive]({% post_url 2025-02-14-macos-boot-disk %}).
 
-Boot into MacOS recovery screen and erase Mac.
+Reboot into MacOS Recovery screen and choose erase your MacOS.
 
-[Install MacOS]({% post_url 2025-02-14-install-macOS-boot-disk %}).
+Reboot into MacOS Recovery screen and [install MacOS]({% post_url 2025-02-14-install-macOS-boot-disk %}).
+
+Disable System Integrity Protection.
+
+Remove Mobile Device Management Profile.
+
+Update MacOS.
 
 
-
-
-### Install MacOS
-
-Text
-
-[command block]
 
 **References**
 
