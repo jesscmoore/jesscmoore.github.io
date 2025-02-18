@@ -39,6 +39,9 @@ plugins:
 include:
  - _pages
 
+# Silence import sass warnings on build caused by import, lighten and darken in minima theme that are deprecated in Dart Sass 3.0.0
+sass:
+  quiet_deps: true
 
 # TOC Settings
 toc:
