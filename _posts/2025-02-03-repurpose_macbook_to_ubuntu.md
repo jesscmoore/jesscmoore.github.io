@@ -10,14 +10,14 @@ My older 2017 Macbook Pro running MacOS Big Sur with 8GB RAM and 250GB storage i
 
 **Summary**
 
-1. Deauthorise machine - disconnect it from your account services.
+1. Unlink macbook - deauthorise macbook from your account services.
 2. `Balena Etcher` - to burn downloaded Ubuntu Desktop iso to bootable flash drive.
 3. [Reboot from bootable USB] - run Ubuntu install wizard.
 4. Install
 
 ## Procedure
 
-### Deauthorise from services
+### Unlink macbook
 
 Follow these steps to [deauthorise machine]({% post_url 2025-02-04-mac_deauth_services %}) from services.
 
