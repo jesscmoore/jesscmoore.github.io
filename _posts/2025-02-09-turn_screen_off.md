@@ -6,30 +6,41 @@ published: false
 toc: true
 ---
 
-Short 1-2 sentence introduction
+Create service to turn off screen after 1 sec of inactivity.
 
-**Summary**
-
-1. [command] - 1 line explanation
-2. [command] - 1 line explanation
 
 ## Procedure
 
-### Sub heading 1
+### Create screen blanking service
 
-Text
+We create a custom service to blank the screen after 1 sec of inactivity.
 
-[command block]
+```bash
+sudo cat >> /etc/systemd/system/enable-console-blanking.service <<'EEOF'
+[Unit]
+Description=Enable virtual console blanking
 
+[Service]
+Type=oneshot
+Environment=TERM=linux
+StandardOutput=tty
+TTYPath=/dev/console
+ExecStart=/usr/bin/setterm -blank 1
 
-### Sub heading 2
+[Install]
+WantedBy=multi-user.target
+EEOF
+```
 
-Text
+Set permissions and enable service.
 
-[command block]
+```bash
+sudo chmod 664 /etc/systemd/system/enable-console-blanking.service
+sudo systemctl enable enable-console-blanking.service
+```
 
-**References**
+Then apply changes with:
 
-Refer to ...:
-
-[url]
+```bash
+reboot
+```
