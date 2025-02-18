@@ -67,13 +67,14 @@ This way Time Machine on the older mac will find a usable storage destination.
 Refer to [mount HFS/HFS external drive]({% post_url 2025-02-18-mount-hfsplus-drive %}) for how to mount an Apple HFS/HFS+ external drive on Ubuntu Server.
 
 
-### Configure share in Samba
+### Configure Samba share for external drive
 
-```bash
-sudo service smbd restart
-```
+Refer to [setup Samba share]({% post_url 2025-02-18-samba-share-timemachine %}) to read how to configure Samba share accessible by TimeMachine for the external drive.
 
-### Setup Avahi service for share
+
+
+
+<!-- ### Setup Avahi service for share
 
 Create an avahi service for the samba share where the name of the `txt-record` must match the name of the samba share.
 
@@ -106,7 +107,7 @@ sudo vim /etc/avahi/services/samba.service
     <txt-record>sys=adVF=0x100</txt-record>
   </service>
 </service-group>sudo nano /etc/avahi/services/samba.service
-```
+``` -->
 
 
 ### Allow ports in firewall
@@ -115,7 +116,7 @@ Allow the ports required by samba and restart ufw.
 
 ```bash
 sudo ufw allow samba
-sudo ufw enable
+sudo ufw --force enable
 ```
 
 ### On macOS setup TimeMachine
