@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "How to deauthorise a macbook from key services"
 date:   2025-02-04 13:24:20 +1100
 published: false

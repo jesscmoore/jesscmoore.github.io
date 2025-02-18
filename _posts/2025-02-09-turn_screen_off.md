@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "How to turn screen off"
 date:   2025-02-09 21:57:25 +1100
 published: false

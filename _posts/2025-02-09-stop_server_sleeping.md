@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "How to stop server from sleeping"
 date:   2025-02-09 21:32:37 +1100
 published: false
