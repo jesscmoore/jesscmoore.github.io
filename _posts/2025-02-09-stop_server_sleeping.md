@@ -10,9 +10,10 @@ Edit default sleep configuration to prevent sleep on closing laptop lid.
 
 **Summary**
 
-1. [sudo mkdir -p /etc/systemd/logind.conf.d] - create new directory /etc/systemd/logind.conf.d for customisation of lid switch
-2. [sudo vim /etc/systemd/logind.conf.d/60-logind.conf] - add user logind.conf to /etc/systemd/logind.conf.d/60-logind.conf
-3. [reboot]  - restart to apply changes
+1. Create `/etc/systemd/logind.conf.d` directory for user customisation of lid closure behaviour.
+2. Edit `/etc/systemd/logind.conf.d/60-logind.conf` to customise lid closure behaviour.
+3. `reboot`  - restart to apply changes
+3. `sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target` - suspend sleep
 
 ## Procedure
 
@@ -21,13 +22,12 @@ Edit default sleep configuration to prevent sleep on closing laptop lid.
 The file `/etc/systemd/logind.conf` configures the parameters of the systemd login manager. A user customisation of login configuration should be stored in `/etc/systemd/logind.conf.d` folder with filename prefix in range `60-` to `90-` and ending in `.conf`.
 
     $ sudo mkdir -p /etc/systemd/logind.conf.d
-    $ sudo vim /etc/systemd/logind.conf.d/60-logind.conf
 
-And add the following to the new file `60-logind.conf`
-
+    $ cat >> /etc/systemd/logind.conf.d/60-logind.conf <<'EEOF'
     HandleLidSwitch=ignore
     HandleLidSwitchExternalPower=ignore
     LidSwitchIgnoreInhibited=no
+    EEOF
 
 Then apply changes with:
 
