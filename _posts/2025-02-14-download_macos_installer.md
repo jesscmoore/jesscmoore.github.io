@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "How to download macOS full installer"
 date:   2025-02-14 14:38:57 +1100
 published: false
