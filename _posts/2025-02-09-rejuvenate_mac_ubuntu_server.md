@@ -26,7 +26,7 @@ Follow these steps to [deauthorise machine]({% post_url 2025-02-04-mac_deauth_se
 
 ### Download and install Ubuntu Server
 
-Open https://ubuntu.com/download/server and download the latest long term supported server. Follow Ubuntu's how to install instructions and step-by-step tutorial if useful. To enable ethernet setup, ensure laptop is connected to modem via ethernet before starting install wizard.
+Open https://ubuntu.com/download/server and download the latest long term supported server. Follow Ubuntu's how to install instructions and step-by-step tutorial if useful. To enable ethernet setup, ensure laptop is connected to modem via ethernet before starting install wizard. This ensures an internet connection in cases where the wifi network controller is not recognised by the Ubuntu OS and requires later install of a driver.
 
 
 ### Install ssh server
