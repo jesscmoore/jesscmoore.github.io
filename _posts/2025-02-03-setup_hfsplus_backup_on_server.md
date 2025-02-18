@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Setup Macbook backups over LAN to Ubuntu Server"
+title:  "Setup Macbook backups on Ubuntu Server"
 date:   2025-02-03 09:39:44 +1100
 published: false
 toc: true
 ---
 
-We backup a macbook using a Seagate HFS+ mounted as a network drive with Samba and Avahi on Ubuntu Server.
+We backup a macbook using a Seagate HFS+ external drive mounted on Ubuntu server and made accessible as a network drive to other MacOS machines over lan using Samba and Avahi.
 
 ## Summary
 
@@ -62,35 +62,9 @@ This way Time Machine on the older mac will find a usable storage destination.
 
 ### Backing up MAC to HFS storage drive over LAN
 
-### Mount HFS+ USB drive
+### Mount external drive
 
-Package `hfsprogs` is required to force rw mounting of HFS+ file systems.
-
-```bash
-apt-get update
-apt-get install hfsprogs
-```
-
-Use `-v` for verbose, and `-o force,rw` to force read-write mode, and `-o uid=1000,gid=1000` to set the mount point and contents permissions with user and group of default user.
-
-First, find the block name of the usb external storage by matching to Apple and excluding the boot block.
-
-```bash
-fdisk -l | grep Apple | grep -iv 'Apple boot'
-```
-Create mount folder and mount the block to that directory.
-
-```bash
-mkdir -p /media/seagate-HFS
-mount -v -t hfsplus -o force,rw,uid=1000,gid=1000 /dev/sdc2 /media/seagate-HFS
-```
-
-And confirm mount details and permissions by listing mounts and folder.
-
-```bash
-mount -l |grep -i /media/seagate-HFS
-ls -l /media
-```
+Refer to [mount HFS/HFS external drive]({% post_url 2025-02-18-mount-hfsplus-drive %}) for how to mount an Apple HFS/HFS+ external drive on Ubuntu Server.
 
 
 ### Configure share in Samba
