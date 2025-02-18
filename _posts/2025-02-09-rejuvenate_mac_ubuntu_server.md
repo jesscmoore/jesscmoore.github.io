@@ -10,20 +10,39 @@ A 10 year old Mac Air runs perfectly. However with only X RAM and Y storage it l
 
 **Summary**
 
-1. Deauthorise services.
-2. Download Ubuntu Server and create bootable disk
-3. Install Ubuntu Server
+1. Unlink macbook - deauthorise macbook from your account services.
+2. Download Ubuntu Server and create bootable disk.
+3. Install Ubuntu Server from bootable USB.
+4. Prevent sleep on lid closure.
+5. Turn screen off.
 
-2. Prevent sleep on lid closure.
-3. Turn screen off.
 
 ## Procedure
 
-### Sub heading 1
+### Unlink macbook
 
-Text
+Follow these steps to [deauthorise machine]({% post_url 2025-02-04-mac_deauth_services %}) from services.
 
-[command block]
+
+### Download and install Ubuntu Server
+
+Open https://ubuntu.com/download/server and download the latest long term supported server. Follow Ubuntu's how to install instructions and step-by-step tutorial if useful. To enable ethernet setup, ensure laptop is connected to modem via ethernet before starting install wizard.
+
+
+### Install ssh server
+
+To enable remote access with ssh, install ssh server.
+
+```bash
+sudo apt update
+sudo apt install openssh-server
+```
+
+The ssh server should now be installed and can be verified with:
+
+```bash
+sudo systemctl status ssh
+```
 
 
 ### Prevent sleeping
@@ -37,4 +56,4 @@ Finally, there is no need to have the laptop display on, as the machine is now a
 
 **References**
 
-- [https://medium.com/@t.deb41/how-to-turn-your-old-macbook-into-a-home-server-2bb04a5277f7] - on how to setup as server
+- [https://medium.com/@t.deb41/how-to-turn-your-old-macbook-into-a-home-server-2bb04a5277f7](https://medium.com/@t.deb41/how-to-turn-your-old-macbook-into-a-home-server-2bb04a5277f7) - on how to setup as server
