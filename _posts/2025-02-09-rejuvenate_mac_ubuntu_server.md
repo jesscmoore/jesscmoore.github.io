@@ -10,7 +10,10 @@ A 10 year old Mac Air runs perfectly. However with only X RAM and Y storage it l
 
 **Summary**
 
-1. [command] - 1 line explanation
+1. Deauthorise services.
+2. Download Ubuntu Server and create bootable disk
+3. Install Ubuntu Server
+
 2. Prevent sleep on lid closure.
 3. Turn screen off.
 
@@ -25,11 +28,11 @@ Text
 
 ### Prevent sleeping
 
-Next, disable laptop from entering suspend mode when lid is closed. See how to edit the login configuration to [prevent sleeping on lid closure]({% post_url 2025-02-09-stop-server-sleeping %}).
+Next, disable laptop from entering suspend mode when lid is closed. See how to edit the login configuration to [prevent sleeping on lid closure]({% post_url 2025-02-09-stop_server_sleeping %}).
 
 ### Turn screen off
 
-Finally, there is no need to have the laptop display on, as the machine is now always accessed from remote login. Follow how to [turn the screen off]({% post_url 2025-02-09-turn-screen-off %}) to disable the screen.
+Finally, there is no need to have the laptop display on, as the machine is now always accessed from remote login. Follow how to [turn the screen off]({% post_url 2025-02-09-turn_screen_off %}) to disable the screen.
 
 
 **References**
