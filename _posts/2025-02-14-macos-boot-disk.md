@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "Create MacOS boot disk"
 date:   2025-02-14 14:45:18 +1100
 published: false

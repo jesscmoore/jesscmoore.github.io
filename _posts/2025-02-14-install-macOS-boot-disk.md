@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "Install MacOS from Bootable Disk"
 date:   2025-02-14 19:26:41 +1100
 published: false
