@@ -119,14 +119,14 @@ The Apple Time Machine documentation recommends Samba over Netatalk/AFP. However
 
 ### Useful commands
 
-- [id] - show user's username and groups with uid and gids
-- [lsblk] - list block devices
-- `sudo blkid /dev/sdc2` - show the block id of device
-- `fdisk -l` - list disks
-- `mount -l` - list mounted devices
-- `sudo testparm -s` - test samba configuration
-- `systemctl status smbd` - show samba service status
-- `systemctl restart smbd` - restart samba service
+- `id` - Show user's username and groups with uid and gids.
+- `lsblk` - List block devices
+- `blkid [device_name]` - Show the block id of specific device.
+- `fdisk -l` - List disks and volumes, including unmounted volumes.
+- `mount -l` - List mounted volumes.
+- `testparm -s` - Test samba configuration.
+- `systemctl status smbd` - Show Samba service status.
+- `systemctl restart smbd` - Restart Samba service.
 
 
 **References**
