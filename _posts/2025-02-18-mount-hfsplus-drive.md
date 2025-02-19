@@ -2,7 +2,7 @@
 layout: post
 title:  "Mount external drives for writing MacOS files"
 date:   2025-02-18 19:28:33 +1100
-published: false
+published: true
 toc: true
 ---
 

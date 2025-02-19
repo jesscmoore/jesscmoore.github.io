@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Setup Time Machine accessible Samba share for external drive"
+title:  "Setup Samba share for external drive"
 date:   2025-02-18 23:57:42 +1100
-published: false
+published: true
 toc: true
 ---
 
-An external drive on Ubuntu Server can be made accessible to other machines by mounting as a Samba share drive.
+An external drive on Ubuntu Server can be made accessible to other machines by mounting as a Samba share drive. In this case we add the drive as a TimeMachine accessible Samba share.
 
 **Summary**
 
