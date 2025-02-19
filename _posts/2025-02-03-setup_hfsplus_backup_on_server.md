@@ -22,11 +22,10 @@ On client:
 
 ## Procedure
 
-MacOS filesystem format since approx 2017 has been APFS. TimeMachine will format a new external storage drive as APFS by default on recent Macs.
 
 ### Erase existing volumes on drive
 
-The external drive had previously been used for TimeMachine encrypted backups using the TimeMachine default APFS filesystem format. As this format cannot be read-write mounted, the drive must be erased and reformated to HPFS format which TimeMachine can also use for backups.
+The external drive had previously been used for TimeMachine encrypted backups using the TimeMachine default APFS filesystem format, which has been the standard Apple file system format since 2017. As APFS format cannot be read-write mounted on Ubuntu, the drive must be erased and reformated to HPFS format which TimeMachine can also use for backups.
 
 Opened `Disk Utility` app > `View` > `Show All Devices`
 
