@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title:  "Setup Samba share for external drive"
 date:   2025-02-18 23:57:42 +1100
 published: true
