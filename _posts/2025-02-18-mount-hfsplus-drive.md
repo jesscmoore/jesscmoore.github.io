@@ -87,3 +87,27 @@ cat /etc/fstab
 
 
 Note: the drive does not automount when plugged into Ubuntu Server machine. The user needs to run `mount ....` to mount it.
+
+
+## Troubleshooting
+
+The drive may mount as readonly (`ro`), despite options `force, rw` in the mount command. This is detected as:
+
+```bash
+mount -l |grep /media
+/dev/sdb2 on /media/seagate1-1_8T type hfsplus (ro,relatime,umask=22,uid=1000,gid=1000,nls=utf8)
+```
+
+Review `dmesg`:
+
+```bash
+sudo dmesg | grep hfsplus | more
+hfsplus: Filesystem was not cleanly unmounted, running fsck.hfsplus is recommended.  mounti
+ng read-only.
+```
+
+Running `fsck.hfsplus` on the drive fixed the issue, after which re-running mount  correctly mounted the drive in `rw` mode.
+
+```bash
+sudo fsck.hfsplus /dev/sdb2
+```
