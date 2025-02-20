@@ -16,7 +16,7 @@ Shut down or turn off the Mac.
 
 Insert the bootable installer disk.
 
-***Apple Silicon Macs:*** Turn on the Mac and continue to hold the power button.
+***Apple Silicon Macs:*** Turn on the Mac and hold the Option and power button.
 
 ***Intel Macs:*** Turn on the Mac and hold down the `Option` button.
 
