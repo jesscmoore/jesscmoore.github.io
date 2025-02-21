@@ -15,7 +15,30 @@ Removing remote management requires erasing the MacOS installation and removing 
 
 Burn MacOS onto a [bootable USB drive]({% post_url 2025-02-14-macos-boot-disk %}).
 
-Reboot into MacOS Recovery screen and choose erase your MacOS.
+### Allow boot from external disk
+
+**This must be done before the disk is erased as it requires a working operating system with admin user.** Reboot into MacOS Recovery screen. Open Startup Security Utility, enter admin password, select Allow boot from USB. Reboot to apply.
+
+Reboot, then after screen goes blank press CMD+R to access Recovery mode.
+
+Open `Startup Security Utility` with:
+
+`Utilities` > `Startup Security Utility`.
+
+Default settings are `Full Security` and `Disallow booting from external or removable media` which prevents using an external boot disk. Change it to no security and allow booting from external media. This will allow user to boot from operating systems on external media that are not signed by Apple, such as ome might need to change to a non MacOS operating system.
+
+```console
+Secure Boot: No Security
+Allowed Boot Media: Allow booting from external or removable media
+```
+
+
+
+Reboot into MacOS Recovery screen and choose erase your MacOS hard disk drive. In Recovery screen, open
+
+`Disk Utility` > select `Mackintosh HD` volume > click Erase.
+
+
 
 Reboot into MacOS Recovery screen and [install MacOS]({% post_url 2025-02-14-install-macOS-boot-disk %}).
 
