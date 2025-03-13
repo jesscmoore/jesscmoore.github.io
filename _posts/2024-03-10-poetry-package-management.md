@@ -6,30 +6,40 @@ published: false
 toc: true
 ---
 
-Short 1-2 sentence introduction
+Useful poetry commands
 
-**Summary**
+### Initialise existing project
 
-1. [command] - 1 line explanation
-2. [command] - 1 line explanation
+```
+cd [project]
+poetry init
+```
 
-## Procedure
+### Establish new project
 
-### Sub heading 1
+```
+poetry new [project]
+```
 
-Text
+### Useful settings
 
-[command block]
+Set the python project
+
+```
+[project]
+requires-python = ">=3.9"
+```
+
+Turn off package mode (as only required if intending to build project as a package.)
+
+```
+[tool.poetry]
+package-mode = false
+```
 
 
-### Sub heading 2
+### Useful commands
 
-Text
-
-[command block]
-
-**References**
-
-Refer to ...:
-
-[url]
+- `poetry run python xyz.py` - runs xyz.py in your environment
+- `poetry add [package]` - installs package in environment and adds to project.toml file.
+- `poetry remove [package]` - uninstalls package from environment and removes it from the project.toml file.
