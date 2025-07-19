@@ -31,11 +31,20 @@ Opened `Disk Utility` app > `View` > `Show All Devices`
 
 This shows the volumes nested in the container on the Seagate One Touch usb drive. To erase the encrypted volumes, for each volume on the Seagate:
 
-Click volume > click `Erase`
+Click volume > click `Erase` and select `Mac OS Extended (Case-sensitive, Journaled)` format.
 
 The drive is now empty except for some system files, and contains no encrypted content.
 
-Open `Disk Utility` > `View` > `Show All Devices` > click the container on the storage device > `Partition` > `+` > select `HFS/HFS+` format.
+Click container > `Erase` >
+
+```
+Name: Seagate
+Format: Mac OS Extended (Journaled)
+Scheme: GUID Partition Map
+```
+and click `Erase`.
+
+Open `Disk Utility` > `View` > `Show All Devices` > click the container on the storage device > `Partition` > `+` > select `Mac OS Extended (Case-sensitive, Journaled)` format.
 
 
 ### Mount drive
