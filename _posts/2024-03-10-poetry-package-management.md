@@ -10,9 +10,10 @@ Useful poetry commands
 
 ### Initialise existing project
 
+Initialise poetry environment in existing project. The `-q` denotes quiet setting which applies poetry in non verbose mode.
 ```
 cd [project]
-poetry init
+poetry init -q
 ```
 
 ### Establish new project
