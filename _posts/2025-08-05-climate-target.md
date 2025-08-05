@@ -6,7 +6,7 @@ published: false
 toc: false
 ---
 
-A brief missive that I submitted to Federal Government in the petition to set the strongest possible 2035 climate target in answer to Prof Tim Flannery's callout to supporters.
+A brief missive that I submitted to Federal Government in the [petition to set the strongest possible 2035 climate target](https://www.climatecouncil.org.au/actions/petition-climate-targets-and-action/?apcid=0066ea6bf4156cf29a8d2401&utm_campaign=fun-bof-dc-emo-ta-lead-250&utm_content=fun-bof-dc-emo-ta-lead-250&utm_medium=email&utm_source=ortto) in answer to Prof Tim Flannery's callout to supporters (see the [Climate Council](https://www.climatecouncil.org.au/)).
 
 > Every day that is a good day, I am nourished by Country when I take a brief time to get out for a ramble. I head up the trails any of several ways and with happy legs, 15 minutes later I'm on our local ridge.
 >
