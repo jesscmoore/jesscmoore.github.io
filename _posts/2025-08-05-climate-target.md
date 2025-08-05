@@ -14,4 +14,4 @@ A brief missive that I submitted to Federal Government in the [petition to set t
 >
 > Our land needs our care. It is doing its best to survive catastropic anthropogenic change. We must come together to collaborate, be ambitious in avoiding more disastrous environmental change. To protect our heritage and community, all the creatures in it.
 
-<!-- TODO: insert picture from walks -->
+![Dawn over a street tree near Cooleman ridge](/assets/images/20250805_dawnTreeChapman.jpg)
