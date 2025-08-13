@@ -2,7 +2,7 @@
 layout: post
 title:  "Reinstall MacOS using Installer"
 date:   2025-02-28 18:18:48 +1100
-published: false
+published: true
 toc: true
 ---
 

@@ -2,7 +2,7 @@
 layout: note
 title:  "How to download macOS full installer"
 date:   2025-02-14 14:38:57 +1100
-published: false
+published: true
 toc: true
 ---
 
@@ -40,8 +40,7 @@ List available MacOS versions
 
 Download MacOS Sequoia v15.3 disk image:
 
-    $ softwareupdate --fetch-full-installer --full-installer-version 15.3
-
+    softwareupdate --fetch-full-installer --full-installer-version 15.3
 
 ## Troubleshooting
 
@@ -62,9 +61,8 @@ And added OpenDNS nameservers.
 
 And restarted download.
 
-
 **References**
 
-- https://discussions.apple.com/thread/255182110?answerId=259942918022&sortBy=rank#259942918022
-- https://www.opendns.com/setupguide/
-- https://apple.stackexchange.com/questions/372785/pkdownloaderror-error-8-upon-catalina-update
+- <https://discussions.apple.com/thread/255182110?answerId=259942918022&sortBy=rank#259942918022>
+- <https://www.opendns.com/setupguide/>
+- <https://apple.stackexchange.com/questions/372785/pkdownloaderror-error-8-upon-catalina-update>

@@ -2,7 +2,7 @@
 layout: note
 title:  "Install MacOS from Bootable Disk"
 date:   2025-02-14 19:26:41 +1100
-published: false
+published: true
 toc: true
 ---
 
@@ -18,11 +18,9 @@ Access the Startup (boot) menu by:
 
 Press `Power` + `Option` keys.
 
-
 Select the bootable installer, then click `Continue` to start the Installer wizard and follow the installation steps
 
 If needing to disable remote management, ensure you disconnect from internet before the last 1-2 minutes of the end of the install routine. Connecting to internet via mobile hotspot is an easy network option, as the computer can be quickly disconnected from the net by turning off the hotspot.
-
 
 ## Troubleshooting
 

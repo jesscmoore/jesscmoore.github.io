@@ -109,10 +109,10 @@ Running `fsck.hfsplus` on the drive fixed the issue, after which re-running moun
 sudo fsck.hfsplus /dev/sdb2
 ```
 
-Then unmount and remount disk. If not unmounting, ensure the mount point is not in use, navigate elsewhere, then use lazy unmount and forced umount if necessaary.
+Then unmount and remount disk. If not unmounting, ensure the mount point is not in use, navigate elsewhere, then use lazy unmount and forced umount if necessaary. If unmounted and still failing to umount due to 'already mounted or mount point busy' error, then `reboot` can be the easiest option to remount the disk.
 
 ```bash
 cd
-sudo umount -l
-sudo umount -f
+sudo umount -l /dev/sdb2
+sudo umount -f /dev/sdb2
 ```

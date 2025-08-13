@@ -2,7 +2,7 @@
 layout: note
 title:  "Create MacOS boot disk"
 date:   2025-02-14 14:45:18 +1100
-published: false
+published: true
 toc: true
 ---
 
@@ -16,7 +16,6 @@ Two options are described below. Use Option 1 to create a boot disk of a `.dmg` 
 
 ### Option 1: Burning a .dmg
 
-
 Insert a USB drive with minimum capacity 16GB
 
 Open Balena Etcher imaging app which we will use to create a boot disk.
@@ -27,17 +26,15 @@ Choose 'Flash from file' > select image file to burn
 
 Select target destination drive
 
-
 ### Option 2: Burning a Install\ Sequoia.app
 
 The `softwareupdate` app downloads an installer application. This needs to be burned to boot disk with:
 
-    $ sudo /Applications/Install\ macOS\ Sequoia.app/Contents/Resources/createinstallmedia --volume /Volumes/[volname]
+    sudo /Applications/Install\ macOS\ Sequoia.app/Contents/Resources/createinstallmedia --volume /Volumes/[volname]
 
 where `volname` is the name of your USB volume.
 
 A non-empty storage disk will need to first be erased, which can be done with the Disk Utility app or on command line.
-
 
 ## Troubleshooting
 
@@ -55,8 +52,6 @@ If it shows `mds` or `mds_store`, this is the `Spotlight.app`. Prevent Spotlight
 
 Then reboot, and retry `createinstallmedia`.
 
-
-
 ## References
 
-- https://support.apple.com/en-us/101578 - Create a bootable installer for macOS
+- <https://support.apple.com/en-us/101578> - Create a bootable installer for macOS

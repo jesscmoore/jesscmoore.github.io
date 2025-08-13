@@ -10,7 +10,6 @@ Removing remote management requires erasing the MacOS installation and unsetting
 
 Permission to boot from external disk is disabled by default in recent MacOS (since ~2020). To enable install from bootable USB, this setting must be enabled from recovery mode **before the operating system is deleted** (while the user exists with admin permissions).
 
-
 ## Procedure
 
 ### [Download MacOS]({% post_url 2025-02-14-download_macos_installer %})
@@ -32,8 +31,6 @@ or
 ---
 
 ### [Disable Remote Management]({% post_url 2025-02-28-disable-remote-management %})
-
-
 
 **References**
 

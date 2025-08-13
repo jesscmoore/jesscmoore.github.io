@@ -2,7 +2,7 @@
 layout: post
 title:  "Erase MacOS Operating System"
 date:   2025-02-28 16:49:55 +1100
-published: false
+published: true
 toc: true
 ---
 

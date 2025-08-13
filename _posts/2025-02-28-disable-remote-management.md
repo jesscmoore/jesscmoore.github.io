@@ -2,7 +2,7 @@
 layout: post
 title:  "Disable Remote Management"
 date:   2025-02-28 22:11:17 +1100
-published: false
+published: true
 toc: true
 ---
 
@@ -24,7 +24,6 @@ Select `Utilities` > `Terminal`
 csrutil disable
 reboot
 ```
-
 
 ### Remove Mobile Device Management
 
@@ -84,7 +83,6 @@ csrutil enable
 reboot
 ```
 
-
 ### Reconnect to internet and update MacOS
 
 Back in MacOS Desktop, reconnect to internet.
@@ -94,6 +92,5 @@ Then confirm the system is not remotely managed with:
 ```bash
 sudo profiles show -type enrollment
 ```
-
 
 Any MacOS updates can now be installed.

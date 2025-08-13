@@ -2,7 +2,7 @@
 layout: post
 title:  "Allow boot from external media"
 date:   2025-02-28 16:05:15 +1100
-published: false
+published: true
 toc: true
 ---
 
