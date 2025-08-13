@@ -6,7 +6,7 @@ published: true
 toc: true
 ---
 
-External drives formatted in Apple filesystems can be mounted in read write mode on Ubuntu Server OS, providing the drive is formatted in Apple HFS/HFS+ format. As of Jan 2025, there is very limited support for mounting Apple APFS formatted drives on Ubuntu, and they can only be mounted in read mode (using https://github.com/sgan81/apfs-fuse library)
+External drives formatted in Apple filesystems can be mounted in read write mode on Ubuntu Server OS, providing the drive is formatted in Apple HFS/HFS+ format. As of Jan 2025, there is very limited support for mounting Apple APFS formatted drives on Ubuntu, and they can only be mounted in read mode (using <https://github.com/sgan81/apfs-fuse> library)
 
 **Summary**
 
@@ -16,7 +16,6 @@ External drives formatted in Apple filesystems can be mounted in read write mode
 4. `sudo mount -v -t hfsplus -o force,rw,uid=1000,gid=1000 [device_vol_name] /media/[mount_name]`- mount the device volume at mount point.
 5. `sudo blkid [device_vol_name] | awk -F'"' '{print $2}'` - fetch device volume block id to use in `/etc/fstab`.
 6. `sed -i '\$a '"UUID=[device_block_id] /media/[mount_name] hfsplus nosuid,nodev,nofail,force,rw,uid=1000,gid=1000 0 0" /etc/fstab` - add device volume mounting to `/etc/fstab`.
-
 
 ## Procedure
 
@@ -34,7 +33,7 @@ apt-get install hfsprogs
 First, fetch the volume block details of the external drive. We do this by searching for Apple type devices excluding Apple boot devices.
 
 ```bash
-fdisk -l | grep Apple | grep -iv 'Apple boot'
+sudo fdisk -l | grep Apple | grep -iv 'Apple boot'
 ```
 
 If you have multiple Apple formatted external drives, identify the drive  volume of interest from volume size. In our case we see that the drive size is 1.8T, and use that to fetch the volume name, which is the first argument returned.
@@ -85,9 +84,7 @@ Confirm the drive is added with:
 cat /etc/fstab
 ```
 
-
 Note: the drive does not automount when plugged into Ubuntu Server machine. The user needs to run `mount ....` to mount it.
-
 
 ## Troubleshooting
 
@@ -110,4 +107,12 @@ Running `fsck.hfsplus` on the drive fixed the issue, after which re-running moun
 
 ```bash
 sudo fsck.hfsplus /dev/sdb2
+```
+
+Then unmount and remount disk. If not unmounting, ensure the mount point is not in use, navigate elsewhere, then use lazy unmount and forced umount if necessaary.
+
+```bash
+cd
+sudo umount -l
+sudo umount -f
 ```

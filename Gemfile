@@ -45,3 +45,7 @@ gem 'csv'
 # base64
 # Added to avoid "warning: base64 was loaded from the standard library"
 gem 'base64'
+
+# google-protobuf
+# Added to avoid jekyll doctor error: Could not find google-protobuf-4.28.2-arm64-darwin, ffi-1.17.0-arm64-darwin in any of the sources
+gem 'google-protobuf'
