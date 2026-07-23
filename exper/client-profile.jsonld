@@ -10,7 +10,7 @@
   ],
   "post_logout_redirect_uris": [
     "https://jesscmoore.github.io/exper/redirect.html",
-    "au.privateinsights.exper://logout",
+    "au.privateinsights.exper://redirect",
     "http://localhost:4400/redirect.html"
   ],
   "scope": "openid profile offline_access webid",
