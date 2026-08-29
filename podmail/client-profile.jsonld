@@ -1,0 +1,29 @@
+{
+  "@context": "https://www.w3.org/ns/solid/oidc-context.jsonld",
+  "client_id": "https://jesscmoore.github.io/podmail/client-profile.jsonld",
+  "client_name": "podmail",
+  "application_type": "native",
+  "redirect_uris": [
+    "https://podmail.dev.privateinsights.au/redirect.html",
+    "https://jmoore.dev.privateinsights.au/redirect.html",
+    "https://jesscmoore.github.io/podmail/redirect.html",
+    "au.privateinsights.dev.podmail://redirect",
+    "http://localhost:4400/redirect.html"
+  ],
+  "post_logout_redirect_uris": [
+    "https://podmail.dev.privateinsights.au/redirect.html",
+    "https://jmoore.dev.privateinsights.au/redirect.html",
+    "https://jesscmoore.github.io/podmail/redirect.html",
+    "au.privateinsights.dev.podmail://redirect",
+    "http://localhost:4400/redirect.html"
+  ],
+  "scope": "openid profile offline_access webid",
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ],
+  "response_types": [
+    "code"
+  ],
+  "token_endpoint_auth_method": "none"
+}
