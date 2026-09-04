@@ -4,7 +4,7 @@
   "client_name": "Podmail",
   "application_type": "native",
   "redirect_uris": [
-    "https://podmail.podmail.me/redirect.html",
+    "https://app.podmail.me/redirect.html",
     "https://jmoore.podmail.me/redirect.html",
     "https://anushkavid.podmail.me/redirect.html",
     "https://podmail.privateinsights.au/redirect.html",
@@ -15,7 +15,7 @@
     "http://localhost:4400/redirect.html"
   ],
   "post_logout_redirect_uris": [
-    "https://podmail.podmail.me/redirect.html",
+    "https://app.podmail.me/redirect.html",
     "https://jmoore.podmail.me/redirect.html",
     "https://anushkavid.podmail.me/redirect.html",
     "https://podmail.privateinsights.au/redirect.html",
