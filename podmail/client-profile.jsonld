@@ -4,15 +4,23 @@
   "client_name": "Podmail",
   "application_type": "native",
   "redirect_uris": [
+    "https://podmail.podmail.me/redirect.html",
+    "https://jmoore.podmail.me/redirect.html",
+    "https://anushkavid.podmail.me/redirect.html",
     "https://podmail.privateinsights.au/redirect.html",
     "https://jmoore.privateinsights.au/redirect.html",
+    "https://anushkavid.privateinsights.au/redirect.html",
     "https://jesscmoore.github.io/podmail/redirect.html",
     "au.privateinsights.podmail://redirect",
     "http://localhost:4400/redirect.html"
   ],
   "post_logout_redirect_uris": [
+    "https://podmail.podmail.me/redirect.html",
+    "https://jmoore.podmail.me/redirect.html",
+    "https://anushkavid.podmail.me/redirect.html",
     "https://podmail.privateinsights.au/redirect.html",
     "https://jmoore.privateinsights.au/redirect.html",
+    "https://anushkavid.privateinsights.au/redirect.html",
     "https://jesscmoore.github.io/podmail/redirect.html",
     "au.privateinsights.podmail://redirect",
     "http://localhost:4400/redirect.html"
